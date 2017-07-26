@@ -12,7 +12,7 @@ while True:
     if (GPIO.input(buttonPin)):
         filename = str(datetime.datetime.now())
         Camera(filename).snap()
-        puts "image created"
+        print "image created"
         # send to api
         # if authorized, turn on ciruit
             # on button push disable circuit
