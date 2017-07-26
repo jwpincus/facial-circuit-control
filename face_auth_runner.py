@@ -7,7 +7,7 @@ from IPython import embed
 from time import sleep
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarning(False)
+GPIO.setwarnings(False)
 
 buttonPin = 17
 relayPin = 18
