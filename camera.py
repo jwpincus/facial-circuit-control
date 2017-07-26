@@ -13,3 +13,4 @@ class Camera(object):
         camera.start_preview()
         sleep(1)
         camera.capture(('./images/' + self.filename + '.jpg') )
+        camera.stop_preview()
