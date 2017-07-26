@@ -9,10 +9,10 @@ buttonPin = 17
 GPIO.setup(buttonPin, GPIO.IN)
 
 while True:
-    if (GPIO.input(buttonPin))
+    if (GPIO.input(buttonPin)):
         filename = str(datetime.datetime.now())
         Camera(filename).snap()
-        
+        puts "image created"
         # send to api
         # if authorized, turn on ciruit
             # on button push disable circuit
