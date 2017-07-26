@@ -12,7 +12,7 @@ while True:
     if (GPIO.input(buttonPin)):
         filename = str(datetime.datetime.now())
         Camera(filename).snap()
-        with open('./images/' + self.filename + '.jpg', "rb") as image:
+        with open('./images/' + filename + '.jpg', "rb") as image:
             base64image = base64.b64encode(image.read())
             print base64image
         # send to api
