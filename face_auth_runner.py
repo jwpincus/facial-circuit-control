@@ -17,7 +17,8 @@ while True:
         with open('./images/' + filename + '.jpg', "rb") as image:
             base64image = base64.b64encode(image.read())
         response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64image})
-        print response
+        image = false
+        print response.text
 
 
         # send to api
