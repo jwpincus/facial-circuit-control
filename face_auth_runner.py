@@ -22,7 +22,7 @@ while True:
     if (GPIO.input(buttonPin) and not circuit):
         filename = str(datetime.datetime.now())
         Camera(filename).snap()
-        with open('./images/' + filename + '.jpg', "rb") as image:
+        with open('/home/pi/facial-circuit-control/images/' + filename + '.jpg', "rb") as image:
             base64_image = base64.b64encode(image.read())
         response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64_prefix + base64_image})
         print response.text
