@@ -4,6 +4,7 @@ import base64
 import datetime
 import requests
 from IPython import embed
+from time import sleep
 
 GPIO.setmode(GPIO.BCM)
 
