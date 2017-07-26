@@ -12,4 +12,4 @@ class Camera(object):
         camera.resolution = (800, 600)
         camera.start_preview()
         sleep(1)
-        camera.capture(('./images/' self.filename +'.jpg') )
+        camera.capture(('./images/' + self.filename + '.jpg') )
