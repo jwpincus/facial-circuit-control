@@ -1,4 +1,7 @@
 import RPi.GPIO as GPIO
+from camera import Camera
+import base64
+import datetime
 
 GPIO.setmode(GPIO.BCM)
 
@@ -7,4 +10,9 @@ GPIO.setup(buttonPin, GPIO.IN)
 
 while True:
     if (GPIO.input(buttonPin))
-        print "Button push"
+        filename = str(datetime.datetime.now())
+        Camera(filename).snap()
+        
+        # send to api
+        # if authorized, turn on ciruit
+            # on button push disable circuit
