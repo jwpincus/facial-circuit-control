@@ -24,10 +24,10 @@ while True:
             base64_image = base64.b64encode(image.read())
         response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64_prefix + base64_image})
         print response.text
-        if (response.json()['authenticated'])
+        if (response.json()['authenticated']):
             circuit = True
             GPIO.output(relayPin, circuit)
-    else if (GPIO.input(buttonPin) and circuit):
+    elif (GPIO.input(buttonPin) and circuit):
         circuit = False
         GPIO.output(relayPin, circuit)
         # if authorized, turn on ciruit
