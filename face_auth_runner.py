@@ -7,10 +7,11 @@ from IPython import embed
 from time import sleep
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnig(False)
 
 buttonPin = 17
-GPIO.setup(buttonPin, GPIO.IN)
 relayPin = 18
+GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
 
 circuit = False
