@@ -3,6 +3,7 @@ from camera import Camera
 import base64
 import datetime
 import requests
+from IPython import embed
 
 GPIO.setmode(GPIO.BCM)
 
@@ -19,8 +20,6 @@ while True:
             base64_image = base64.b64encode(image.read())
         response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64_prefix + base64_image})
         print response.text
-
-
-        # send to api
+        embed()
         # if authorized, turn on ciruit
             # on button push disable circuit
