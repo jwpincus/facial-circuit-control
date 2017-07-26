@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BCM)
 
 buttonPin = 17
 GPIO.setup(buttonPin, GPIO.IN)
-auth_url = 'https://re-cognizer.herokuapp.com/api/v1/authenticate'
+auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
 
 while True:
     if (GPIO.input(buttonPin)):
@@ -16,7 +16,7 @@ while True:
         Camera(filename).snap()
         with open('./images/' + filename + '.jpg', "rb") as image:
             base64image = base64.b64encode(image.read())
-        response = requests.put(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64image})
+        response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64image})
         print response
 
 
