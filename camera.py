@@ -11,6 +11,6 @@ class Camera(object):
         camera = picamera.PiCamera()
         camera.resolution = (800, 600)
         camera.start_preview()
-        sleep(1)
-        camera.capture(('./images/' + self.filename + '.jpg') )
+        sleep(.5)
+        camera.capture(('./images/' + self.filename + '.jpg'), resize=(400, 300) )
         camera.stop_preview()
