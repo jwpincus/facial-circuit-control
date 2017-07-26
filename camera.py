@@ -12,5 +12,5 @@ class Camera(object):
         camera.resolution = (800, 600)
         camera.start_preview()
         sleep(.5)
-        camera.capture(('./images/' + self.filename + '.jpg'), resize=(400, 300) )
+        camera.capture(('./images/' + self.filename + '.jpg'), resize=(400, 300), quality=(60) )
         camera.stop_preview()
