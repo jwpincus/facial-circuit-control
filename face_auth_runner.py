@@ -30,5 +30,6 @@ while True:
     elif (GPIO.input(buttonPin) and circuit):
         circuit = False
         GPIO.output(relayPin, circuit)
+        sleep(2)
         # if authorized, turn on ciruit
             # on button push disable circuit
