@@ -1,6 +1,7 @@
 import picamera
 from time import sleep
 
+# this class works, but I have no idea why. Don't quite understand passing arguments and what object does.
 
 class Camera(object):
 
