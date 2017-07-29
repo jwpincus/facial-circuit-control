@@ -3,5 +3,5 @@ from time import sleep
 
 sensor = DistanceSensor(echo=21, trigger=20)
 while True:
-    print('Distance: ', sensor.distance() * 100.0)
+    print('Distance: ', sensor.distance)
     sleep(1)
