@@ -6,7 +6,7 @@ class DistanceSensor:
     @flowerChildParameter { ref = "echo_pin", type = "int" }
     @flowerChildParameter { ref = "trigger_pin", type = "int" }
     """
-    def __init__(self, echo_pin = 20, trigger_pin = 21):
+    def __init__(self, echo_pin = 21, trigger_pin = 20):
         self.GPIO_TRIGGER = trigger_pin
         self.GPIO_ECHO = echo_pin
 
