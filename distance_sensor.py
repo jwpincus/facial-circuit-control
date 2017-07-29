@@ -22,7 +22,7 @@ class DistanceSensor:
         distance = round(distance, 2)
         return distance
 
-distance = DistanceSensor
+distance = DistanceSensor()
 
 while True:
     print distance.measure()
