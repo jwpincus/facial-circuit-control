@@ -18,7 +18,6 @@ class DistanceSensor:
             pulse_end = time.time()
         pulse_duration = pulse_end - pulse_start
         distance = pulse_duration * 17150
-        GPIO.cleanup()
         distance = round(distance, 2)
         return distance
 
