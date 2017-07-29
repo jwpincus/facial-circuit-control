@@ -9,6 +9,8 @@ GPIO.output(TRIG, False)
 
 class DistanceSensor:
     def measure(self):
+        pulse_start = 0.0
+        pulse_end = 0.0
         GPIO.output(TRIG, True)
         time.sleep(0.00001)
         GPIO.output(TRIG, False)
