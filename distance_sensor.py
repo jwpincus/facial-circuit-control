@@ -1,5 +1,7 @@
 from gpiozero import DistanceSensor
+from time import sleep
 
-ultrasonic = DistanceSensor(echo=24, trigger=23)
+sensor = DistanceSensor(echo=24, trigger=123)
 while True:
-        print ultrasonic.distance
+    print('Distance: ', sensor.distance * 100)
+    sleep(1)
