@@ -40,4 +40,4 @@ while True:
         circuit = False # set state for circuit
         GPIO.output(relayPin, circuit) # send state to physical circuit
         sleep(10) # give the user time to get their finger off the button and leave
-    sleep(.5)
+    sleep(1)
