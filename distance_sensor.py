@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import time import sleep
+from time import sleep
 
 class DistanceSensor:
     GPIO.setmode(GPIO.BCM)
