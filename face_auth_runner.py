@@ -19,7 +19,7 @@ GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
 # GPIO.setup(trigger,GPIO.OUT)
 # GPIO.setup(echo,GPIO.IN)
-GPIO.output(trigger, False)
+# GPIO.output(trigger, False)
 
 circuit = False # the program should initialize with the circuit off
 auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
