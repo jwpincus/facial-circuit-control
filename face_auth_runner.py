@@ -12,16 +12,14 @@ GPIO.setwarnings(False)
 
 buttonPin = 17
 relayPin = 18
-# trigger = 20
-# echo = 21
+
 
 GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
-# GPIO.setup(trigger,GPIO.OUT)
-# GPIO.setup(echo,GPIO.IN)
-# GPIO.output(trigger, False)
+
 
 circuit = False # the program should initialize with the circuit off
+GPIO.output(relayPin, circuit)
 auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
 base64_prefix = 'data:image/jpeg;base64,' # this is for the benefit of the API. Authentication works without this, but displaying the image in the log does not
 sensor = DistanceSensor().setup()
@@ -41,3 +39,4 @@ while True:
         circuit = False # set state for circuit
         GPIO.output(relayPin, circuit) # send state to physical circuit
         sleep(2) # give the user time to get their finger off the button
+    sleep(2)
