@@ -5,24 +5,31 @@ import datetime
 import requests
 from IPython import embed
 from time import sleep
+from distance_sensor import DistanceSensor
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 buttonPin = 17
 relayPin = 18
+trigger = 20
+echo = 21
 
 GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
 GPIO.setup(distanceTrig, GPIO.OUT)
 GPIO.setup(distanceEcho, GPIO.IN)
+GPIO.setup(trigger,GPIO.OUT)
+GPIO.setup(echo,GPIO.IN)
+GPIO.output(trigger, False)
 
 circuit = False # the program should initialize with the circuit off
 auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
 base64_prefix = 'data:image/jpeg;base64,' # this is for the benefit of the API. Authentication works without this, but displaying the image in the log does not
+sensor = DistanceSensor()
 
 while True:
-    if (GPIO.input(buttonPin) and not circuit):
+    if (sensor.measure() < 30.0 and not circuit):
         filename = str(datetime.datetime.now()) # create unique save name for file. At this point the device saves all files. Not sure if feature or bug
         Camera(filename).snap()
         with open('/home/pi/facial-circuit-control/images/' + filename + '.jpg', "rb") as image: # I guess this is how to do it in python?
