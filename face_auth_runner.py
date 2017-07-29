@@ -11,8 +11,11 @@ GPIO.setwarnings(False)
 
 buttonPin = 17
 relayPin = 18
+
 GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
+GPIO.setup(distanceTrig, GPIO.OUT)
+GPIO.setup(distanceEcho, GPIO.IN)
 
 circuit = False # the program should initialize with the circuit off
 auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
@@ -24,7 +27,7 @@ while True:
         Camera(filename).snap()
         with open('/home/pi/facial-circuit-control/images/' + filename + '.jpg', "rb") as image: # I guess this is how to do it in python?
             base64_image = base64.b64encode(image.read()) # encode the image as base64 string
-        response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64_prefix + base64_image}) 
+        response = requests.post(auth_url, data={ "app_key" : "f94a4394871ce63524cd", "image": base64_prefix + base64_image})
         if (response.json()['authenticated']):
             circuit = True
             GPIO.output(relayPin, circuit)
