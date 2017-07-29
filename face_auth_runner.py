@@ -22,7 +22,8 @@ circuit = False # the program should initialize with the circuit off
 GPIO.output(relayPin, circuit)
 auth_url = 'http://re-cognizer.herokuapp.com/api/v1/authenticate'
 base64_prefix = 'data:image/jpeg;base64,' # this is for the benefit of the API. Authentication works without this, but displaying the image in the log does not
-sensor = DistanceSensor().setup()
+sensor = DistanceSensor()
+sensor.setup()
 
 while True:
     distance = sensor.measure()
