@@ -1,7 +1,5 @@
 from gpiozero import DistanceSensor
 
-class Distance:
-    def sense(self):
-        ultrasonic = DistanceSensor(echo=24, trigger=17)
+ultrasonic = DistanceSensor(echo=24, trigger=17)
+while True:
         print ultrasonic.distance
-Distance().sense()
