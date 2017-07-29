@@ -25,5 +25,5 @@ class DistanceSensor:
 distance = DistanceSensor()
 
 while True:
-    distance.measure
+    print distance.measure
     sleep(1)
