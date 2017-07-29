@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from time import sleep
+import time
 GPIO.setmode(GPIO.BCM)
 TRIG = 20
 ECHO = 21
@@ -10,7 +10,7 @@ GPIO.output(TRIG, False)
 class DistanceSensor:
     def measure(self):
         GPIO.output(TRIG, True)
-        sleep(0.00001)
+        time.sleep(0.00001)
         GPIO.output(TRIG, False)
         while GPIO.input(ECHO)==0:
             pulse_start = time.time()
@@ -26,4 +26,4 @@ distance = DistanceSensor()
 
 while True:
     print distance.measure()
-    sleep(1)
+    time.sleep(1)
