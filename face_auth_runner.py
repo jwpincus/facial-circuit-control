@@ -17,8 +17,6 @@ echo = 21
 
 GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(relayPin, GPIO.OUT)
-GPIO.setup(distanceTrig, GPIO.OUT)
-GPIO.setup(distanceEcho, GPIO.IN)
 GPIO.setup(trigger,GPIO.OUT)
 GPIO.setup(echo,GPIO.IN)
 GPIO.output(trigger, False)
