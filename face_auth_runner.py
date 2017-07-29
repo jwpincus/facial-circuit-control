@@ -27,7 +27,7 @@ base64_prefix = 'data:image/jpeg;base64,' # this is for the benefit of the API. 
 sensor = DistanceSensor()
 
 while True:
-    if (sensor.measure() < 30.0 and not circuit):
+    if ((sensor.measure() < 30.0) and not circuit):
         filename = str(datetime.datetime.now()) # create unique save name for file. At this point the device saves all files. Not sure if feature or bug
         Camera(filename).snap()
         with open('/home/pi/facial-circuit-control/images/' + filename + '.jpg', "rb") as image: # I guess this is how to do it in python?
