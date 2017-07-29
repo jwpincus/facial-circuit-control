@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
 import time
-# GPIO.setmode(GPIO.BCM)
-# TRIG = 20
-# ECHO = 21
-# GPIO.setup(TRIG,GPIO.OUT)
-# GPIO.setup(ECHO,GPIO.IN)
-# GPIO.output(TRIG, False)
+GPIO.setmode(GPIO.BCM)
+TRIG = 20
+ECHO = 21
+GPIO.setup(TRIG,GPIO.OUT)
+GPIO.setup(ECHO,GPIO.IN)
+GPIO.output(TRIG, False)
 
 class DistanceSensor:
     def measure(self):
