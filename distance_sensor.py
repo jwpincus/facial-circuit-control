@@ -25,9 +25,10 @@ class DistanceSensor:
         GPIO.output(self.GPIO_TRIGGER, False)
         StartTime = time.time()
         StopTime = time.time()
-        while GPIO.input(self.GPIO_ECHO) == 0:
+        timeoutStart = time.time()
+        while GPIO.input(self.GPIO_ECHO) == 0 or (time.time() - timeoutStart) < 3:
             StartTime = time.time()
-        while GPIO.input(self.GPIO_ECHO) == 1:
+        while GPIO.input(self.GPIO_ECHO) == 1 or (time.time() - timeoutStart) < 3:
             StopTime = time.time()
             TimeElapsed = StopTime - StartTime
             distance = (TimeElapsed * 34300) / 2
