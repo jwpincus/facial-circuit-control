@@ -20,12 +20,13 @@ class DistanceSensor:
         return
 
     def measure(self):
-        GPIO.output(self.GPIO_TRIGGER, True)
-        time.sleep(0.00001)
-        GPIO.output(self.GPIO_TRIGGER, False)
         StartTime = time.time()
         StopTime = time.time()
         timeoutStart = time.time()
+        distance = 'timeout'
+        GPIO.output(self.GPIO_TRIGGER, True)
+        time.sleep(0.00001)
+        GPIO.output(self.GPIO_TRIGGER, False)
         while GPIO.input(self.GPIO_ECHO) == 0 and (time.time() - timeoutStart) < 3:
             StartTime = time.time()
         while GPIO.input(self.GPIO_ECHO) == 1 and (time.time() - timeoutStart) < 3:
