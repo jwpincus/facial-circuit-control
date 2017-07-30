@@ -27,7 +27,7 @@ sensor.setup()
 
 while True:
     distance = sensor.measure()
-    if ((distance < 50.0) and not circuit):
+    if ((distance < 90.0) and not circuit):
         filename = str(datetime.datetime.now()) # create unique save name for file. At this point the device saves all files. Not sure if feature or bug
         Camera(filename).snap()
         with open('/home/pi/facial-circuit-control/images/' + filename + '.jpg', "rb") as image: # I guess this is how to do it in python?
@@ -40,4 +40,4 @@ while True:
         circuit = False # set state for circuit
         GPIO.output(relayPin, circuit) # send state to physical circuit
         sleep(10) # give the user time to get their finger off the button and leave
-    sleep(.5)
+    sleep(.2)
